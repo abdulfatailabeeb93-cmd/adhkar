@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل العمرة خطوة بخطوة | من البيت إلى التحلل</title>
+<style>
+:root{
+  --bg:#faf6ec; --bg2:#fffdf7; --card:#ffffff; --ink:#2c2620; --muted:#8b7f6b;
+  --gold:#b8860b; --gold2:#d4af37; --green:#0c5a46; --green2:#147a5f;
+  --green-soft:#e7f2ec; --border:#e7dcc2; --shadow:0 12px 32px rgba(60,50,20,.09);
+  --radius:18px; --fs:20px;
+}
+[data-theme="dark"]{
+  --bg:#0c1411; --bg2:#101c17; --card:#17231f; --ink:#f1e9d4; --muted:#ab9f87;
+  --gold:#d4af37; --gold2:#f0d27a; --green:#7fd1ad; --green2:#3aa67f;
+  --green-soft:#1d332b; --border:#2b3b34; --shadow:0 12px 32px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Sakkal Majalla","Traditional Arabic","Amiri",serif;
+  background:var(--bg);color:var(--ink);font-size:var(--fs);line-height:2;
+  transition:background .3s,color .3s;min-height:100vh}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--bg2) 88%,transparent);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1150px;margin:auto;padding:10px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:26px;color:#fff;
+  background:linear-gradient(135deg,#0c5a46,#147a5f);border:1px solid rgba(212,175,55,.6);box-shadow:var(--shadow)}
+.logo b{font-size:22px;display:block;line-height:1.3}
+.logo small{color:var(--muted);font-size:14px}
+.controls{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-family:inherit;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:6px 14px;font-size:17px;transition:.2s}
+.btn:hover{border-color:var(--gold2);transform:translateY(-1px)}
+.btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.hero{max-width:1150px;margin:24px auto 8px;padding:0 18px;display:grid;grid-template-columns:1.25fr .75fr;gap:16px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.hero-card{position:relative;overflow:hidden;border-radius:24px;padding:34px 30px;color:#fdf8e7;
+  background:linear-gradient(135deg,#081f18,#0c5a46 55%,#147a5f);border:1px solid rgba(212,175,55,.45);box-shadow:var(--shadow)}
+.hero-card::before{content:"";position:absolute;inset:0;opacity:.13;
+  background-image:url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='45' y='45' width='50' height='50' fill='none' stroke='%23FFD700' stroke-width='1.5'/%3E%3Crect x='55' y='20' width='30' height='25' fill='none' stroke='%23FFD700'/%3E%3C/svg%3E");
+  background-size:110px}
+.hero-card h1{margin:0 0 6px;font-size:40px;line-height:1.5;position:relative}
+.hero-card p{margin:0;opacity:.93;font-size:20px;position:relative}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;position:relative}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px 14px;font-size:16px}
+.side-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
+.side-card h3{margin:0 0 8px;color:var(--green);font-size:19px}
+.pbar{height:12px;background:var(--green-soft);border-radius:999px;overflow:hidden}
+.pbar>div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--green2));transition:width .4s}
+/* المخطط البياني */
+.diagram{max-width:1150px;margin:14px auto;padding:0 18px}
+.diagram-card{background:var(--card);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+.diagram-card h2{margin:0 0 4px;font-size:24px}
+.steps{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:14px}
+@media(max-width:860px){.steps{grid-template-columns:repeat(4,1fr)}}
+.station{border:1px solid var(--border);background:var(--bg2);border-radius:14px;padding:10px 6px;text-align:center;
+  cursor:pointer;transition:.2s;font-size:15px;line-height:1.8}
+.station .ic{font-size:26px;display:block}
+.station:hover{border-color:var(--gold2)}
+.station.visited{background:var(--green-soft);border-color:var(--green2)}
+.station.now{outline:2px solid var(--gold2)}
+.tabs{max-width:1150px;margin:14px auto;padding:10px 18px;display:flex;gap:10px;position:sticky;top:68px;z-index:40;
+  background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px)}
+.tab{flex:1;font-family:inherit;font-weight:700;font-size:18px;padding:11px;border-radius:15px;cursor:pointer;
+  border:1px solid var(--border);background:var(--card);color:var(--ink);transition:.2s}
+.tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+.container{max-width:1150px;margin:auto;padding:0 18px 60px}
+.stage{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:22px;margin:16px 0;scroll-margin-top:140px}
+.stage-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stage-num{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;color:#fff;
+  font-weight:700;font-size:20px;background:linear-gradient(135deg,var(--gold),var(--gold2))}
+.stage-head h2{margin:0;font-size:26px}
+.stage.done{border-color:var(--green2)}
+.stage.done .stage-num{background:linear-gradient(135deg,var(--green),var(--green2))}
+.place-img{width:100%;max-height:320px;object-fit:cover;border-radius:14px;margin-top:12px;border:1px solid var(--border);display:none}
+.img-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+.img-hint{font-size:15px;color:var(--muted)}
+.duaa{background:var(--bg2);border:1px solid var(--border);border-inline-start:4px solid var(--gold2);
+  border-radius:12px;padding:14px 16px;margin:12px 0}
+.duaa p{margin:0 0 6px;font-size:calc(var(--fs) + 2px)}
+.src{font-size:15px;color:var(--muted);line-height:1.9}
+.src strong{color:var(--green)}
+ol.steps-list{padding-inline-start:22px;margin:8px 0}
+ol.steps-list li{margin-bottom:6px}
+.mark-btn{font-family:inherit;cursor:pointer;border:none;border-radius:12px;padding:10px 20px;font-size:18px;font-weight:700;
+  background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;margin-top:8px}
+.mark-btn.done{background:var(--muted)}
+/* العدادات */
+.counters{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.counters{grid-template-columns:1fr}}
+.counter-card{background:var(--card);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);
+  padding:24px;text-align:center}
+.circle{width:210px;height:210px;margin:14px auto;border-radius:50%;cursor:pointer;user-select:none;color:#fff;
+  background:radial-gradient(circle at 30% 30%,#1d8a68,#0c5a46 70%);border:6px solid var(--gold2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:60px;font-weight:700;
+  box-shadow:0 15px 40px rgba(12,90,70,.35);transition:transform .08s}
+.circle:active{transform:scale(.96)}
+.circle small{font-size:16px;font-weight:400;opacity:.9}
+.round-dots{display:flex;gap:8px;justify-content:center;margin:10px 0}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--gold2);background:transparent}
+.dot.on{background:linear-gradient(135deg,var(--gold),var(--gold2))}
+/* قسم الفيديو */
+.video-card{background:var(--card);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+.video-card h2{margin:0 0 4px;font-size:24px}
+.player{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:#000;margin-top:12px}
+.player img.slide-img{width:100%;max-height:420px;object-fit:cover;display:block}
+.slide-cap{position:absolute;bottom:0;right:0;left:0;padding:36px 18px 14px;color:#fff;text-align:right;
+  background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.slide-cap b{font-size:23px;display:block}
+.slide-cap span{font-size:17px;opacity:.92}
+.player-nav{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.slide-dots{display:flex;gap:6px}
+.slide-dots i{width:12px;height:12px;border-radius:50%;background:var(--border);cursor:pointer}
+.slide-dots i.on{background:var(--gold2)}
+.yt-box{margin-top:14px;border-top:1px dashed var(--border);padding-top:14px}
+.yt-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.yt-row input{flex:1;min-width:220px;font-family:inherit;font-size:17px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--ink)}
+.yt-frame{margin-top:10px;display:none}
+.yt-frame iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:14px}
+.verse{background:color-mix(in srgb,var(--green-soft) 65%,transparent);border:1px dashed var(--border);
+  border-radius:12px;padding:10px;font-size:18px;min-height:70px}
+footer{text-align:center;color:var(--muted);padding:28px;font-size:16px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:#0c5a46;color:#fff;
+  padding:12px 24px;border-radius:999px;font-size:18px;transition:.3s;z-index:99;opacity:0}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <div class="logo"><div class="logo-mark">🕋</div>
+    <div><b>دليل العمرة</b><small>من البيت إلى التحلل — بالأدلة الصحيحة</small></div></div>
+  <div class="controls">
+    <button class="btn" id="fontMinus">أ−</button>
+    <button class="btn" id="fontPlus">أ+</button>
+    <button class="btn" id="themeBtn">🌙 ليلي</button>
+    <button class="btn" id="resetAll">↺ تصفير التقدم</button>
+  </div>
+</div></div>
+
+<div class="hero">
+  <div class="hero-card">
+    <h1>رحلة العمرة خطوة بخطوة</h1>
+    <p>﴿ وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ ﴾ — البقرة ١٩٦ &nbsp;•&nbsp; قال ﷺ: «العُمْرَةُ إلى العُمْرَةِ كَفَّارَةٌ لما بيْنَهُما» — متفق عليه</p>
+    <div class="hero-meta"><span class="pill" id="progPill">التقدم: 0 من 8</span><span class="pill">⏱️ نحو 2 – 3 ساعات</span><span class="pill">📿 عداد الطواف والسعي بالأسفل</span></div>
+  </div>
+  <div class="side-card">
+    <h3>تقدمك في المناسك</h3>
+    <div class="pbar"><div id="progBar"></div></div>
+    <p style="color:var(--muted);font-size:16px">يُحفظ تقدمك وعداداتك في متصفحك تلقائياً.</p>
+  </div>
+</div>
+
+<div class="diagram"><div class="video-card">
+  <h2>🎬 العرض المرئي لبيان العمرة</h2>
+  <div style="font-size:16px;color:var(--muted)">جولة مصوّرة تلقائية لخطوات العمرة — تعمل مثل الفيديو مع إمكانية الإيقاف والتنقل.</div>
+  <div class="player">
+    <img class="slide-img" id="slideImg" alt="شرح العمرة بالصور">
+    <div class="slide-cap"><b id="slideTitle"></b><span id="slideText"></span></div>
+  </div>
+  <div class="player-nav">
+    <button class="btn" id="slidePrev">→ السابق</button>
+    <button class="btn btn-gold" id="slidePlay" style="background:linear-gradient(135deg,#b8860b,#d4af37);color:#fff;border:none">⏸ إيقاف</button>
+    <button class="btn" id="slideNext">التالي ←</button>
+    <div class="slide-dots" id="slideDots"></div>
+    <span style="font-size:15px;color:var(--muted)" id="slideNum"></span>
+  </div>
+  <div class="yt-box">
+    <b>📺 تضمين مقطع يوتيوب خارجي</b>
+    <div style="font-size:16px;color:var(--muted)">الصق رابط أي فيديو يشرح العمرة وسيُعرض هنا مباشرة ويُحفظ في متصفحك.</div>
+    <div class="yt-row">
+      <input id="ytUrl" placeholder="الصق رابط اليوتيوب هنا...">
+      <button class="btn" id="ytShow">عرض ▶</button>
+      <a class="btn" href="https://www.youtube.com/results?search_query=%D8%B5%D9%81%D8%A9+%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9+%D8%AE%D8%B7%D9%88%D8%A9+%D8%A8%D8%AE%D8%B7%D9%88%D8%A9" target="_blank" rel="noopener">🔍 ابحث في يوتيوب</a>
+    </div>
+    <div class="yt-frame" id="ytFrame"><iframe id="ytPlayer" title="شرح العمرة" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</div></div>
+
+<div class="diagram"><div class="diagram-card">
+  <h2>📊 المخطط البياني للأداء</h2>
+  <div style="font-size:16px;color:var(--muted)">اضغط على أي محطة للانتقال إليها مباشرة — تُلوَّن المحطات المنجزة تلقائياً.</div>
+  <div class="steps" id="stations"></div>
+</div></div>
+
+<div class="tabs">
+  <button class="tab active" data-v="rites">🕋 المناسك والأدعية</button>
+  <button class="tab" data-v="counter">📿 عداد الطواف والسعي</button>
+</div>
+
+<div class="container">
+<div id="view-rites">
+
+  <section class="stage" id="s1"><div class="stage-head"><span class="stage-num">1</span><h2>🏠 الاستعداد في البيت</h2></div>
+    <ol class="steps-list">
+      <li>يلبس الرجل لباس الإحرام (الإزار والرداء) من البيت استعداداً، وتلبس المرأة ما شاءت من الثياب الساترة غير متبرجة.</li>
+      <li>يتجه إلى الميقات، حيث يكون الاغتسال والتطيب والنية والتلبية (انظر المرحلة التالية).</li>
+    </ol>
+    <img class="place-img" data-slot="home" alt="لباس الإحرام">
+    <div class="img-row"><label class="btn">📷 أضف صورة<input type="file" accept="image/*" data-img="home" hidden></label><span class="img-hint">أو ضع ملفاً باسم <b>home.jpg</b> في مجلد الصور — <a href="#" id="imgHelp">كيف؟</a></span></div>
+    <button class="mark-btn" data-stage="s1">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s2"><div class="stage-head"><span class="stage-num">2</span><h2>📍 الميقات والإحرام والتلبية</h2></div>
+    <ol class="steps-list">
+      <li>عند الميقات يُستحب أن <b>يغتسل ويتطيّب في بدنه</b> (ولا يطيِّب لباس الإحرام)، ثم يلبس الإزار والرداء إن لم يكن لبسهما من قبل.</li>
+      <li>المواقيت: <b>ذو الحليفة</b> (لأهل المدينة) • <b>الجحفة</b> (لأهل الشام) • <b>قرن المنازل</b> (لأهل نجد) • <b>يلملم</b> (لأهل اليمن) • <b>ذات عرق</b> (لأهل العراق). ومن كان داخل المواقيت أحرم من مكانه، ومن كان في مكة أحرم للعمرة من الحِل (كالتنعيم).</li>
+      <li>عند الميقات: ينوي بقلبه الدخول في العمرة ويقول: <b>«لَبَّيْكَ اللَّهُمَّ عُمْرَةً»</b>.</li>
+      <li>يُكثر من التلبية رافعاً بها صوته (والمرأة تخفض صوتها).</li>
+      <li>يجتنب محظورات الإحرام: قص الشعر والأظفار، الطيب، الجماع ومقدماته، لبس المخيط (للرجل)، تغطية الرأس (للرجل)، النقاب والقفازان (للمرأة)، الصيد.</li>
+    </ol>
+    <img class="place-img" data-slot="miqat" alt="ميقات ذو الحليفة">
+    <div class="img-row"><label class="btn">📷 أضف صورة<input type="file" accept="image/*" data-img="miqat" hidden></label><span class="img-hint">أو ضع ملفاً باسم <b>miqat.jpg</b> في مجلد الصور</span></div>
+    <div class="duaa"><p>«اغْتَسَلَ ﷺ لِإِحْرَامِهِ»</p><div class="src">📚 <strong>المصدر:</strong> الترمذي (830) وصححه الألباني</div></div>
+    <div class="duaa"><p>«كُنْتُ أُطَيِّبُ رَسُولَ اللَّهِ ﷺ لِإِحْرَامِهِ قَبْلَ أَنْ يُحْرِمَ»</p><div class="src">📚 <strong>المصدر:</strong> متفق عليه — البخاري (1539) ومسلم (1189) عن عائشة رضي الله عنها</div></div>
+    <div class="duaa"><p>«وَقَّتَ رَسُولُ اللَّهِ ﷺ لِأَهْلِ الْمَدِينَةِ ذَا الْحُلَيْفَةِ، وَلِأَهْلِ الشَّامِ الْجُحْفَةَ، وَلِأَهْلِ نَجْدٍ قَرْنَ الْمَنَازِلِ، وَلِأَهْلِ الْيَمَنِ يَلَمْلَمَ، هُنَّ لَهُنَّ وَلِمَنْ أَتَى عَلَيْهِنَّ مِنْ غَيْرِهِنَّ»</p><div class="src">📚 <strong>المصدر:</strong> متفق عليه — البخاري (1526) ومسلم (1181) عن ابن عباس رضي الله عنهما • وذات عرق لأهل العراق: صحيح مسلم (1183)</div></div>
+    <div class="duaa"><p>التلبية: «لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ»</p><div class="src">📚 <strong>المصدر:</strong> متفق عليه — البخاري (1549) ومسلم (1184) عن ابن عمر رضي الله عنهما</div></div>
+    <button class="mark-btn" data-stage="s2">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s3"><div class="stage-head"><span class="stage-num">3</span><h2>🕌 دخول مكة والمسجد الحرام</h2></div>
+    <ol class="steps-list">
+      <li>يُستحب دخول مكة نهاراً والاغتسال قبل الدخول إن تيسر.</li>
+      <li>يدخل المسجد الحرام باليمنى قائلاً دعاء دخول المسجد.</li>
+      <li>يتجه إلى الكعبة ويقطع التلبية عند رؤية البيت، ويشتغل بالطواف.</li>
+    </ol>
+    <img class="place-img" data-slot="haram" alt="المسجد الحرام">
+    <div class="img-row"><label class="btn">📷 أضف صورة<input type="file" accept="image/*" data-img="haram" hidden></label><span class="img-hint">أو ضع ملفاً باسم <b>haram.jpg</b> في مجلد الصور</span></div>
+    <div class="duaa"><p>«أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ، بِسْمِ اللَّهِ، اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ»</p><div class="src">📚 <strong>المصدر:</strong> رواه مسلم (713) وأبو داود (466) — دعاء دخول المسجد</div></div>
+    <button class="mark-btn" data-stage="s3">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s4"><div class="stage-head"><span class="stage-num">4</span><h2>🕋 الطواف بالكعبة (7 أشواط)</h2></div>
+    <ol class="steps-list">
+      <li>يضطبع الرجل (يُخرج كتفه الأيمن) ويرمُل في الأشواط الثلاثة الأولى (يسرع المشي مع تقارب الخطى).</li>
+      <li>يبدأ من الحجر الأسود: يستلمه ويقبّله إن تيسر، وإلا أشار إليه وكبَّر.</li>
+      <li>يجعل الكعبة عن يساره ويطوف خارج الحِجر، ويدعو بما شاء من خيري الدنيا والآخرة.</li>
+      <li>بين الركن اليماني والحجر الأسود يقول: ﴿رَبَّنَا آتِنَا...﴾.</li>
+      <li>بعد تمام الأشواط السبعة: يصلّي <b>ركعتي الطواف عند مقام إبراهيم</b> (التفصيل في الصندوق الذهبي بالأسفل)، ثم يشرب من زمزم.</li>
+    </ol>
+    <img class="place-img" data-slot="tawaf" alt="الطواف حول الكعبة">
+    <div class="img-row"><label class="btn">📷 أضف صورة<input type="file" accept="image/*" data-img="tawaf" hidden></label><span class="img-hint">أو ضع ملفاً باسم <b>tawaf.jpg</b> في مجلد الصور — واستخدم العداد بالأسفل لكل شوط</span></div>
+    <div class="duaa"><p>«طَافَ النَّبِيُّ ﷺ بِالْبَيْتِ عَلَى بَعِيرٍ، كُلَّمَا أَتَى الرُّكْنَ أَشَارَ إِلَيْهِ بِشَيْءٍ كَانَ عِنْدَهُ وَكَبَّرَ»</p><div class="src">📚 <strong>المصدر:</strong> البخاري (1632) عن ابن عباس رضي الله عنهما</div></div>
+    <div class="duaa"><p>بين الركنين: «رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ»</p><div class="src">📚 <strong>المصدر:</strong> أبو داود (1892) وحسّنه الألباني • والآية: البقرة 201</div></div>
+    <div class="duaa" style="border-inline-start-color:var(--gold);background:linear-gradient(to left,rgba(212,175,55,.12),var(--bg2));">
+      <p style="font-weight:700">🕌 ركعتا الطواف عند مقام إبراهيم — سُنّة مؤكدة بعد كل طواف</p>
+      <ol class="steps-list">
+        <li><b>أين؟</b> خلف المقام بحيث يجعله بينه وبين الكعبة إن تيسّر، فإن لم يتيسّر بسبب الزحام صلّاهما في <b>أي مكان من المسجد الحرام</b> — ولا يزاحم الناس ولا يؤذيهم.</li>
+        <li><b>ماذا يقرأ؟</b> ركعتان خفيفتان: يقرأ في الأولى بعد الفاتحة سورة <b>الكافرون</b>، وفي الثانية سورة <b>الإخلاص</b>.</li>
+        <li><b>ثم؟</b> يرجع إلى الحجر الأسود فيستلمه إن تيسّر (كما فعل ﷺ)، ثم يخرج إلى المسعى — ولم يثبت دعاء خاص بعد هاتين الركعتين فيدعو بما شاء.</li>
+        <li><b>تنبيه:</b> مسح مقام إبراهيم أو التمسح به أو تقبيله لم يثبت عن النبي ﷺ — يُصلَّى عنده ولا يُتمسَّح به.</li>
+      </ol>
+      <div class="src">📚 <strong>المصدر:</strong> ﴿ وَاتَّخِذُوا مِنْ مَقَامِ إِبْرَاهِيمَ مُصَلًّى ﴾ — البقرة 125 • «ثُمَّ نَفَذَ إِلَى مَقَامِ إِبْرَاهِيمَ فَقَرَأَ: وَاتَّخِذُوا... فَجَعَلَ الْمَقَامَ بَيْنَهُ وَبَيْنَ الْبَيْتِ، فَصَلَّى رَكْعَتَيْنِ قَرَأَ فِيهِمَا بِـ (قُلْ يَا أَيُّهَا الْكَافِرُونَ) وَ (قُلْ هُوَ اللَّهُ أَحَدٌ)، ثُمَّ رَجَعَ إِلَى الرُّكْنِ فَاسْتَلَمَهُ ثُمَّ خَرَجَ مِنَ الْبَابِ إِلَى الصَّفَا» — صحيح مسلم (1218) من حديث جابر رضي الله عنه</div>
+    </div>
+    <div class="duaa"><p>«مَاءُ زَمْزَمَ لِمَا شُرِبَ لَهُ» — ويُستحب التضلع منه والدعاء عنده</p><div class="src">📚 <strong>المصدر:</strong> ابن ماجه (3062) وصححه الألباني</div></div>
+    <button class="mark-btn" data-stage="s4">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s5"><div class="stage-head"><span class="stage-num">5</span><h2>⛰️ السعي بين الصفا والمروة (7 أشواط)</h2></div>
+    <ol class="steps-list">
+      <li>يصعد الصفا ويستقبل القبلة ويكبّر ويهلّل ويدعو، ثم ينزل ماشياً إلى المروة (هذا شوط).</li>
+      <li>يُسن للرجل الهرولة بين العَلَمين الأخضرين.</li>
+      <li>يفعل على المروة مثل ما فعل على الصفا، ويكرر حتى يتم سبعة أشواط (الذهاب شوط والرجوع شوط) وينتهي عند المروة.</li>
+    </ol>
+    <img class="place-img" data-slot="safa" alt="المسعى بين الصفا والمروة">
+    <div class="img-row"><label class="btn">📷 أضف صورة<input type="file" accept="image/*" data-img="safa" hidden></label><span class="img-hint">أو ضع ملفاً باسم <b>safa.jpg</b> في مجلد الصور</span></div>
+    <div class="duaa"><p>﴿ إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ ﴾ — ويقول: «أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ»</p><div class="src">📚 <strong>المصدر:</strong> البقرة 158 • وقوله ﷺ: صحيح مسلم (1218)</div></div>
+    <div class="duaa"><p>على الصفا والمروة: «اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ» — يكررها ثلاثاً مع الدعاء بينها</p><div class="src">📚 <strong>المصدر:</strong> صحيح مسلم (1218) من حديث جابر رضي الله عنه</div></div>
+    <button class="mark-btn" data-stage="s5">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s6"><div class="stage-head"><span class="stage-num">6</span><h2>✂️ الحلق أو التقصير</h2></div>
+    <ol class="steps-list">
+      <li>يحلق الرجل رأسه كله (وهو الأفضل) أو يقصّر من جميع جوانبه.</li>
+      <li>المرأة تجمع شعرها وتقصّ منه قدر أُنملة (نحو 2 سم).</li>
+      <li>بهذا يتحلل من إحرامه تحللاً كاملاً وتتم عمرته.</li>
+    </ol>
+    <div class="duaa"><p>«اللَّهُمَّ ارْحَمِ الْمُحَلِّقِينَ» قالوا: والمقصّرين يا رسول الله؟ قال: «وَالْمُقَصِّرِينَ» (في الثالثة أو الرابعة)</p><div class="src">📚 <strong>المصدر:</strong> متفق عليه — البخاري (1727) ومسلم (1301) عن ابن عمر رضي الله عنهما</div></div>
+    <button class="mark-btn" data-stage="s6">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s7"><div class="stage-head"><span class="stage-num">7</span><h2>🤍 التحلل وأذكار الختام</h2></div>
+    <ol class="steps-list">
+      <li>بعد الحلق/التقصير يحلّ له كل ما حُرّم عليه بالإحرام.</li>
+      <li>يُستحب الإكثار من الذكر والشكر والدعاء بالقبول.</li>
+      <li>من أراد مغادرة مكة سُنّ له طواف الوداع (وهو واجب في الحج، مستحب في العمرة عند الجمهور).</li>
+    </ol>
+    <img class="place-img" data-slot="zamzam" alt="الحلق والتحلل من الإحرام">
+    <div class="img-row"><label class="btn">📷 أضف صورة<input type="file" accept="image/*" data-img="zamzam" hidden></label><span class="img-hint">أو ضع ملفاً باسم <b>zamzam.jpg</b> في مجلد الصور</span></div>
+    <div class="duaa"><p>«رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ»</p><div class="src">📚 <strong>المصدر:</strong> البقرة 127 — دعاء إبراهيم وإسماعيل عليهما السلام عند بناء البيت</div></div>
+    <button class="mark-btn" data-stage="s7">✓ أنجزت هذه المرحلة</button>
+  </section>
+
+  <section class="stage" id="s8"><div class="stage-head"><span class="stage-num">8</span><h2>⚠️ تنبيهات وأخطاء شائعة</h2></div>
+    <ol class="steps-list">
+      <li>لا يوجد دعاء خاص ثابت لكل شوط من الطواف أو السعي — يدعو المعتمر بما شاء، وما يُتداول من أدعية مخصصة لكل شوط لا أصل له.</li>
+      <li>الطهارة شرط للطواف عند الجمهور؛ فمن أحدث أثناء الطواف توضأ وبنى على ما مضى.</li>
+      <li>المرأة لا ترمُل ولا تهرول ولا تضطبع، وتخفض صوتها بالتلبية.</li>
+      <li>الاعتقاد بوجوب خلع المخيط قبل الميقات بزمن أو الصلاة للإحرام ركعتين مخصوصتين — لا دليل عليه؛ الإحرام هو النية مع التلبية.</li>
+    </ol>
+    <div class="duaa"><p>«مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ»</p><div class="src">📚 <strong>المصدر:</strong> متفق عليه — البخاري (2697) ومسلم (1718) عن عائشة رضي الله عنها</div></div>
+    <button class="mark-btn" data-stage="s8">✓ قرأت التنبيهات</button>
+  </section>
+</div>
+
+<div id="view-counter" style="display:none">
+  <div class="counters">
+    <div class="counter-card">
+      <h2 style="margin:0">🕋 عداد الطواف (7 أشواط)</h2>
+      <div class="round-dots" id="dotsT"></div>
+      <div class="circle" id="tawafBtn"><span id="tawafN">0</span><small>اضغط عند إتمام كل شوط</small></div>
+      <div class="verse" id="tawafDua">ابدأ من الحجر الأسود مكبِّراً...</div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="mark-btn" style="flex:1;background:var(--card);color:var(--ink);border:1px solid var(--border)" id="tawafReset">تصفير</button>
+        <button class="mark-btn" style="flex:2" id="tawafUndo">↩ تراجع</button>
+      </div>
+    </div>
+    <div class="counter-card">
+      <h2 style="margin:0">⛰️ عداد السعي (7 أشواط)</h2>
+      <div class="round-dots" id="dotsS"></div>
+      <div class="circle" id="saiBtn" style="border-color:var(--green2)"><span id="saiN">0</span><small id="saiWhere">ابدأ من الصفا</small></div>
+      <div class="verse" id="saiDua">«أبدأ بما بدأ الله به» ثم اصعد الصفا...</div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="mark-btn" style="flex:1;background:var(--card);color:var(--ink);border:1px solid var(--border)" id="saiReset">تصفير</button>
+        <button class="mark-btn" style="flex:2" id="saiUndo">↩ تراجع</button>
+      </div>
+    </div>
+  </div>
+  <div class="stage"><div class="stage-head"><span class="stage-num">📿</span><h2>مسبحة حرة للذكر</h2></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <select id="freeDhikr" class="btn" style="flex:1;min-width:200px;border-radius:12px;padding:10px"></select>
+      <div class="circle" id="freeBtn" style="width:130px;height:130px;font-size:40px;margin:10px auto"><span id="freeN">0</span></div>
+      <button class="btn" id="freeReset">تصفير</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>الأدلة من صحيح البخاري ومسلم والسنن — رُوجعت بعناية • الصور: ويكيميديا كومنز (رخص حرة CC) • تقبل الله عمرتكم 🤍</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const STATIONS=[["s1","🏠","البيت"],["s2","📍","الميقات"],["s3","🕌","الحرم"],["s4","🕋","الطواف"],["s5","⛰️","السعي"],["s6","✂️","الحلق"],["s7","🤍","التحلل"],["s8","⚠️","تنبيهات"]];
+const TDUAS=["ابدأ من الحجر الأسود: استلمه وكبِّر «الله أكبر».","الشوط 1: ادعُ بما شئت من خيري الدنيا والآخرة.","الشوط 2: أكثر من التلبية والذكر والاستغفار.","الشوط 3: بين الركنين قل: ﴿ربنا آتنا في الدنيا حسنة...﴾.","الشوط 4: واصل الدعاء — اذكر أهلك وإخوانك.","الشوط 5: سبِّح وهلِّل وكبِّر.","الشوط 6: ادعُ بالقبول والثبات.","الشوط 7 (الأخير): اختم بالدعاء ثم صلِّ ركعتين خلف المقام واشرب زمزم."];
+const SDUAS=["انطلق من الصفا: «أبدأ بما بدأ الله به».","الشوط 1 (صفا→مروة): اذكر الله وادعُ.","الشوط 2: هرول بين العلمين (للرجال).","الشوط 3: على المروة كبِّر وهلِّل وادعُ.","الشوط 4: واصل السعي بسكينة وذكر.","الشوط 5: أكثر من الدعاء لوالديك وأهلك.","الشوط 6: اقترب الإتمام — جدِّد النية.","الشوط 7 (الأخير): ينتهي عند المروة — ثم احلق أو قصِّر."];
+const FREE=["سبحان الله","الحمد لله","الله أكبر","لا إله إلا الله","أستغفر الله","سبحان الله وبحمده","اللهم صلِّ على محمد","لبيك اللهم لبيك"];
+let S=JSON.parse(localStorage.getItem("umrah-v1")||"{}");
+S.done=S.done||{};S.tawaf=S.tawaf||0;S.sai=S.sai||0;S.free=S.free||0;
+if(!S.fs)S.fs=20;
+function save(){localStorage.setItem("umrah-v1",JSON.stringify(S));}
+function toast(m){const e=document.getElementById("toast");e.textContent=m;e.classList.add("show");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("show"),2300);}
+function applyTheme(){const t=S.theme||((new Date().getHours()>=18||new Date().getHours()<6)?"dark":"light");document.documentElement.dataset.theme=t;document.getElementById("themeBtn").textContent=t==="dark"?"☀️ نهاري":"🌙 ليلي";}
+function applyFs(){document.documentElement.style.setProperty("--fs",S.fs+"px");}
+// stations diagram
+const stBox=document.getElementById("stations");
+STATIONS.forEach(([id,ic,lb])=>{const d=document.createElement("div");d.className="station";d.id="st-"+id;
+  d.innerHTML=`<span class="ic">${ic}</span>${lb}`;d.onclick=()=>document.getElementById(id).scrollIntoView({behavior:"smooth"});stBox.appendChild(d);});
+function render(){
+  const ids=STATIONS.map(s=>s[0]);let n=0;
+  ids.forEach(id=>{const sec=document.getElementById(id),btn=sec.querySelector(".mark-btn"),dot=document.getElementById("st-"+id);
+    const d=!!S.done[id];sec.classList.toggle("done",d);dot.classList.toggle("visited",d);
+    btn.textContent=d?"✓ تم — اضغط للتراجع":"✓ أنجزت هذه المرحلة";btn.classList.toggle("done",d);if(d)n++;});
+  document.getElementById("progBar").style.width=(n/8*100)+"%";
+  document.getElementById("progPill").textContent=`التقدم: ${n} من 8`;
+  // counters
+  document.getElementById("tawafN").textContent=S.tawaf;
+  document.getElementById("saiN").textContent=S.sai;
+  document.getElementById("freeN").textContent=S.free;
+  const dt=document.getElementById("dotsT");dt.innerHTML="";
+  for(let i=1;i<=7;i++){const dd=document.createElement("div");dd.className="dot"+(i<=S.tawaf?" on":"");dt.appendChild(dd);}
+  const ds=document.getElementById("dotsS");ds.innerHTML="";
+  for(let i=1;i<=7;i++){const dd=document.createElement("div");dd.className="dot"+(i<=S.sai?" on":"");ds.appendChild(dd);}
+  document.getElementById("tawafDua").textContent=TDUAS[Math.min(S.tawaf,7)];
+  document.getElementById("saiDua").textContent=SDUAS[Math.min(S.sai,7)];
+  document.getElementById("saiWhere").textContent=S.sai>=7?"تم السعي بحمد الله":(S.sai%2===0?"أنت عند الصفا — اتجه للمروة":"أنت عند المروة — اتجه للصفا");
+  save();
+}
+document.querySelectorAll(".mark-btn[data-stage]").forEach(b=>b.onclick=()=>{const k=b.dataset.stage;S.done[k]=!S.done[k];render();if(S.done[k]){toast("تقبل الله منك 🤍");if(navigator.vibrate)navigator.vibrate(40);}});
+function bump(key,max,msg){if(S[key]>=max){toast("اكتمل العدد بحمد الله");return;}S[key]++;render();if(navigator.vibrate)navigator.vibrate(20);if(S[key]>=max){toast(msg);if(navigator.vibrate)navigator.vibrate([100,50,100]);}}
+document.getElementById("tawafBtn").onclick=()=>bump("tawaf",7,"🕋 أتممت الطواف! صلِّ ركعتين خلف المقام واشرب زمزم");
+document.getElementById("saiBtn").onclick=()=>bump("sai",7,"⛰️ أتممت السعي! بقي الحلق أو التقصير");
+document.getElementById("tawafReset").onclick=()=>{S.tawaf=0;render();};
+document.getElementById("saiReset").onclick=()=>{S.sai=0;render();};
+document.getElementById("tawafUndo").onclick=()=>{S.tawaf=Math.max(0,S.tawaf-1);render();};
+document.getElementById("saiUndo").onclick=()=>{S.sai=Math.max(0,S.sai-1);render();};
+const fsel=document.getElementById("freeDhikr");FREE.forEach(t=>{const o=document.createElement("option");o.textContent=t;fsel.appendChild(o);});
+document.getElementById("freeBtn").onclick=()=>{S.free++;if(navigator.vibrate)navigator.vibrate(10);render();};
+document.getElementById("freeReset").onclick=()=>{S.free=0;render();};
+// tabs + controls
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");
+  const v=b.dataset.v;document.getElementById("view-rites").style.display=v==="rites"?"":"none";document.getElementById("view-counter").style.display=v==="counter"?"":"none";});
+document.getElementById("themeBtn").onclick=()=>{S.theme=document.documentElement.dataset.theme==="dark"?"light":"dark";save();applyTheme();};
+document.getElementById("fontPlus").onclick=()=>{S.fs=Math.min(28,S.fs+2);save();applyFs();};
+document.getElementById("fontMinus").onclick=()=>{S.fs=Math.max(16,S.fs-2);save();applyFs();};
+document.getElementById("resetAll").onclick=()=>{if(confirm("تصفير كل التقدم والعدادات؟")){S.done={};S.tawaf=0;S.sai=0;S.free=0;render();}};
+document.getElementById("imgHelp").onclick=(e)=>{e.preventDefault();alert("لإضافة صور دائمة:\n1. أنشئ مجلداً باسم images بجانب هذا الملف\n2. ضع صورك بأسماء: home.jpg — miqat.jpg — haram.jpg — tawaf.jpg — safa.jpg — zamzam.jpg\n3. ستظهر تلقائياً.\nأو استخدم زر «أضف صورة» لعرض فوري من جهازك.");};
+// images: file-input preview (persisted) + images/ folder fallback
+document.querySelectorAll('img.place-img').forEach(img=>{
+  const slot=img.dataset.slot;
+  const saved=localStorage.getItem("umrah-img-"+slot);
+  if(saved){img.src=saved;img.style.display="block";}
+  else{
+    const jpg=new Image();
+    jpg.onload=()=>{img.src="images/"+slot+".jpg";img.style.display="block";};
+    jpg.onerror=()=>{const svg=new Image();svg.onload=()=>{img.src="images/"+slot+".svg";img.style.display="block";};svg.src="images/"+slot+".svg";};
+    jpg.src="images/"+slot+".jpg";
+  }
+});
+document.querySelectorAll('input[type=file][data-img]').forEach(inp=>inp.onchange=()=>{
+  const f=inp.files[0];if(!f)return;const slot=inp.dataset.img;
+  const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{
+    const c=document.createElement("canvas");const mx=900;const r=Math.min(1,mx/im.width);
+    c.width=im.width*r;c.height=im.height*r;c.getContext("2d").drawImage(im,0,0,c.width,c.height);
+    const url=c.toDataURL("image/jpeg",.82);
+    try{localStorage.setItem("umrah-img-"+slot,url);}catch(e){toast("الصورة كبيرة — ستُعرض مؤقتاً فقط");}
+    const tag=document.querySelector(`img.place-img[data-slot="${slot}"]`);tag.src=url;tag.style.display="block";toast("تمت إضافة الصورة 📷");
+  };im.src=rd.result;};rd.readAsDataURL(f);
+});
+// العرض المرئي + فيديو يوتيوب
+const SLIDES=[
+ {img:"images/home.svg",t:"1️⃣ الاستعداد في البيت",x:"لبس الإحرام والتوجه إلى الميقات."},
+ {img:"images/miqat.jpg",t:"2️⃣ الميقات: الاغتسال والنية والتلبية",x:"«لبيك اللهم عمرة» ثم الإكثار من التلبية."},
+ {img:"images/haram.jpg",t:"3️⃣ دخول المسجد الحرام",x:"بالدعاء المأثور وقطع التلبية عند رؤية البيت."},
+ {img:"images/tawaf.jpg",t:"4️⃣ الطواف 7 أشواط + ركعتا المقام",x:"ثم الشرب من زمزم."},
+ {img:"images/safa.jpg",t:"5️⃣ السعي بين الصفا والمروة",x:"7 أشواط تبدأ بالصفا وتنتهي بالمروة."},
+ {img:"images/zamzam.jpg",t:"6️⃣ الحلق أو التقصير ثم التحلل",x:"وبه تتم العمرة — تقبل الله."}
+];
+let sl=0,playing=true,slTimer=null;
+const dotsBox=document.getElementById("slideDots");
+SLIDES.forEach((_,i)=>{const d=document.createElement("i");d.onclick=()=>{showSlide(i);};dotsBox.appendChild(d);});
+function showSlide(i){sl=(i+SLIDES.length)%SLIDES.length;
+  document.getElementById("slideImg").src=SLIDES[sl].img;
+  document.getElementById("slideTitle").textContent=SLIDES[sl].t;
+  document.getElementById("slideText").textContent=SLIDES[sl].x;
+  document.getElementById("slideNum").textContent=(sl+1)+" / "+SLIDES.length;
+  [...dotsBox.children].forEach((d,k)=>d.classList.toggle("on",k===sl));
+  restartSlide();}
+function restartSlide(){clearInterval(slTimer);if(playing)slTimer=setInterval(()=>showSlide(sl+1),5000);}
+document.getElementById("slideNext").onclick=()=>showSlide(sl+1);
+document.getElementById("slidePrev").onclick=()=>showSlide(sl-1);
+document.getElementById("slidePlay").onclick=(e)=>{playing=!playing;e.target.textContent=playing?"⏸ إيقاف":"▶ تشغيل";restartSlide();};
+showSlide(0);
+function ytID(u){const m=u.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);return m?m[1]:null;}
+function showYT(url){const id=ytID(url.trim());if(!id){toast("رابط غير صالح — الصق رابط يوتيوب صحيح");return;}
+  document.getElementById("ytPlayer").src="https://www.youtube.com/embed/"+id;
+  document.getElementById("ytFrame").style.display="block";S.yt=url;save();toast("تم عرض المقطع ▶");}
+document.getElementById("ytShow").onclick=()=>showYT(document.getElementById("ytUrl").value);
+if(S.yt){document.getElementById("ytUrl").value=S.yt;showYT(S.yt);}
+applyTheme();applyFs();render();
+</script>
+</body>
+</html>

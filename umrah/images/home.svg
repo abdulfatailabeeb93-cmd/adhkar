@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="أسرة مسلمة تتجه إلى مكة">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9e3b0"/><stop offset=".6" stop-color="#f2b96f"/><stop offset="1" stop-color="#e08e52"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8d8d94"/><stop offset="1" stop-color="#6f6f76"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#sky)"/>
+  <circle cx="700" cy="130" r="62" fill="#fff3d0" opacity=".95"/>
+  <circle cx="700" cy="130" r="80" fill="#fff3d0" opacity=".25"/>
+  <path d="M0 380 Q150 330 300 365 T600 355 T900 370 V560 H0 Z" fill="#c99a63"/>
+  <path d="M0 400 Q200 365 420 390 T900 385 V560 H0 Z" fill="#b8895a"/>
+  <!-- الكعبة -->
+  <g>
+    <rect x="640" y="200" width="170" height="150" rx="4" fill="#1c1c22"/>
+    <rect x="640" y="232" width="170" height="26" fill="#c9a227"/>
+    <rect x="640" y="236" width="170" height="4" fill="#8a6d1a"/>
+    <rect x="712" y="290" width="26" height="60" rx="13" fill="#0e0e12" stroke="#c9a227" stroke-width="3"/>
+    <rect x="600" y="348" width="250" height="14" rx="4" fill="#5d5d64"/>
+  </g>
+  <!-- مآذن -->
+  <g fill="#f3ead3">
+    <rect x="600" y="170" width="16" height="185"/><polygon points="600,170 616,170 608,140"/>
+    <rect x="834" y="170" width="16" height="185"/><polygon points="834,170 850,170 842,140"/>
+  </g>
+  <!-- نخيل -->
+  <g>
+    <rect x="90" y="300" width="12" height="110" rx="6" fill="#7a5230"/>
+    <g fill="#3f7a44">
+      <ellipse cx="96" cy="295" rx="55" ry="16"/><ellipse cx="96" cy="295" rx="16" ry="45"/>
+      <ellipse cx="60" cy="285" rx="35" ry="12" transform="rotate(-25 60 285)"/>
+      <ellipse cx="132" cy="285" rx="35" ry="12" transform="rotate(25 132 285)"/>
+    </g>
+    <rect x="520" y="320" width="10" height="85" rx="5" fill="#7a5230"/>
+    <g fill="#3f7a44"><ellipse cx="525" cy="316" rx="42" ry="12"/><ellipse cx="525" cy="316" rx="12" ry="34"/></g>
+  </g>
+  <!-- الطريق -->
+  <polygon points="330,560 430,560 600,400 560,400" fill="url(#road)"/>
+  <g stroke="#f5f0dc" stroke-width="6" stroke-dasharray="22 18"><line x1="392" y1="540" x2="578" y2="412"/></g>
+  <!-- لافتة مكة -->
+  <g>
+    <rect x="60" y="420" width="14" height="90" fill="#555"/>
+    <rect x="20" y="360" width="200" height="62" rx="8" fill="#0c6b3c" stroke="#fff" stroke-width="3"/>
+    <text x="120" y="400" text-anchor="middle" font-size="30" font-family="serif" fill="#fff">مكة المكرمة 🕋</text>
+  </g>
+  <!-- الأب بالثوب والغترة -->
+  <g>
+    <rect x="368" y="400" width="52" height="120" rx="10" fill="#f7f5ef"/>
+    <circle cx="394" cy="378" r="20" fill="#e6b489"/>
+    <path d="M372 372 q22 -30 44 0 l0 -14 q-22 -16 -44 0 Z" fill="#fff"/>
+    <path d="M372 372 q22 -30 44 0" stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
+    <rect x="372" y="356" width="44" height="7" rx="3.5" fill="#222"/>
+    <rect x="362" y="400" width="12" height="70" rx="6" fill="#f7f5ef"/>
+    <rect x="414" y="400" width="12" height="70" rx="6" fill="#f7f5ef"/>
+    <rect x="376" y="516" width="16" height="22" rx="5" fill="#5a4632"/>
+    <rect x="398" y="516" width="16" height="22" rx="5" fill="#5a4632"/>
+  </g>
+  <!-- الأم بالعباءة -->
+  <g>
+    <path d="M470 410 q30 -14 56 0 l10 110 q-38 14 -76 0 Z" fill="#23232b"/>
+    <circle cx="498" cy="392" r="18" fill="#e6b489"/>
+    <path d="M478 388 q20 -26 40 0 q4 22 -6 32 q-14 8 -28 0 q-10 -10 -6 -32" fill="#23232b"/>
+    <ellipse cx="498" cy="394" rx="12" ry="13" fill="#eec39b"/>
+    <rect x="476" y="414" width="10" height="60" rx="5" fill="#23232b"/>
+    <rect x="512" y="414" width="10" height="60" rx="5" fill="#23232b"/>
+  </g>
+  <!-- الابن -->
+  <g>
+    <rect x="330" y="452" width="34" height="70" rx="8" fill="#f7f5ef"/>
+    <circle cx="347" cy="436" r="14" fill="#eec39b"/>
+    <rect x="333" y="424" width="28" height="8" rx="4" fill="#fff" stroke="#ccc"/>
+    <rect x="336" y="520" width="10" height="16" rx="4" fill="#5a4632"/>
+    <rect x="350" y="520" width="10" height="16" rx="4" fill="#5a4632"/>
+  </g>
+  <!-- البنت -->
+  <g>
+    <path d="M548 452 q22 -10 42 0 l8 72 q-29 10 -58 0 Z" fill="#7a3b4f"/>
+    <circle cx="569" cy="438" r="13" fill="#eec39b"/>
+    <path d="M555 434 q14 -20 28 0 q3 16 -4 24 q-10 6 -20 0 q-7 -8 -4 -24" fill="#e8c88a"/>
+    <ellipse cx="569" cy="440" rx="9" ry="10" fill="#f2cfa5"/>
+  </g>
+  <!-- طيور -->
+  <g stroke="#5a4a3a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M180 140 q12 -12 24 0 q12 -12 24 0"/>
+    <path d="M250 110 q10 -10 20 0 q10 -10 20 0"/>
+  </g>
+  <text x="450" y="52" text-anchor="middle" font-size="34" font-family="serif" fill="#5a3a1a">أسرة مسلمة تتجه إلى مكة المكرمة</text>
+</svg>

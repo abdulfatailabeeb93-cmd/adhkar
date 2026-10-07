@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>أذكار الصباح والمساء | حصن المسلم</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0e5e4a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="الأذكار">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
@@ -403,6 +410,7 @@ try{document.getElementById("dateHijri").textContent=new Intl.DateTimeFormat("ar
 const h=new Date().getHours();
 document.getElementById("suggestPill").textContent=(h>=4&&h<12)?"☀️ وقت أذكار الصباح":(h>=15||h<4?"🌙 وقت أذكار المساء":"🤍 وقت الذكر دائماً");
 applyTheme();applyFont();renderAll();
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
 </script>
 </body>
 </html>
